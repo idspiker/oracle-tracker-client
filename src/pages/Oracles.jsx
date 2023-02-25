@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import io from 'socket.io-client';
 
 import AppHeader from '../components/AppHeader';
 import AppBody from '../components/AppBody';
 import TemplarOracles from '../components/TemplarOracles';
+import AtheonOracles from '../components/AtheonOracles';
+import connectToServer from '../connectToServer';
 
-const socket = io.connect('http://localhost:5002');
+const socket = connectToServer();
 
 export default function Oracles() {
   const [socketData, setSocketData] = useState(undefined);
@@ -13,7 +14,7 @@ export default function Oracles() {
   const [selectedView, setSelectedView] = useState('templar');
 
   const activateOracle = (oracleName, encounter) => {
-    socket.emit('update', {
+    socket.emit('activate-oracle', {
       oracleName,
       encounter,
       timestamp: new Date().getTime(),
@@ -22,6 +23,10 @@ export default function Oracles() {
 
   const clearCycle = (encounter) => {
     socket.emit('clear-cycle', { encounter });
+  };
+
+  const changePlanet = (planet) => {
+    socket.emit('change-planet', { planet });
   };
 
   useEffect(() => {
@@ -42,13 +47,21 @@ export default function Oracles() {
             <div>
               <button
                 onClick={() => setSelectedView('templar')}
-                className='view-btn'
+                className={
+                  selectedView === 'templar'
+                    ? 'view-btn view-btn-selected'
+                    : 'view-btn'
+                }
               >
                 Templar
               </button>
               <button
                 onClick={() => setSelectedView('atheon')}
-                className='view-btn'
+                className={
+                  selectedView === 'atheon'
+                    ? 'view-btn view-btn-selected'
+                    : 'view-btn'
+                }
               >
                 Atheon
               </button>
@@ -61,7 +74,13 @@ export default function Oracles() {
                   clearCycle={clearCycle}
                 />
               ) : selectedView === 'atheon' ? (
-                <div>atheon</div>
+                <AtheonOracles
+                  oracles={socketData.atheon.oracles}
+                  planet={socketData.atheon.planet}
+                  activateOracle={activateOracle}
+                  clearCycle={clearCycle}
+                  changePlanet={changePlanet}
+                />
               ) : null}
             </div>
           </div>

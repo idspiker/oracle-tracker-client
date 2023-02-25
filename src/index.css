@@ -96,6 +96,12 @@ code {
   color: white;
   font-size: 1.5rem;
   padding: 0.5rem;
+  border-bottom: 2px solid rgb(34, 34, 66);
+  transition: border-bottom 0.5s;
+}
+
+.view-btn-selected {
+  border-bottom: 2px solid rgb(255, 123, 0);
 }
 
 .dark-background {
@@ -131,6 +137,58 @@ code {
   background-color: rgb(255, 144, 40);
   border: 2px solid rgb(255, 175, 100);
   box-shadow: 0 0 1rem 0 rgb(255, 144, 40);
+}
+
+.planet-selection {
+  position: fixed;
+  top: 93%;
+  left: 0;
+  width: 100vw;
+}
+
+.planet-select-btn {
+  width: 50vw;
+  height: 7vh;
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(34, 34, 66);
+  border: 0;
+}
+
+.planet-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -8;
+  transition: background-color 0.5s;
+}
+
+.mars-background {
+  background-color: rgb(155, 70, 0);
+}
+
+.venus-background {
+  background-color: rgb(24, 104, 84);
+}
+
+.mars-btn {
+  background-color: rgb(112, 50, 0);
+}
+
+.venus-btn {
+  background-color: rgb(16, 75, 60);
+}
+
+.portal-guide {
+  position: fixed;
+  top: 88%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .orange {

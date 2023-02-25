@@ -8,23 +8,6 @@ export default function Start() {
 
   const handleStart = async (e) => {
     e.preventDefault();
-
-    const response = await window.fetch(
-      'http://localhost:5001/host/start-session',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Mode: 'cors',
-          Accept: 'application/json',
-          Cache: 'no-cache',
-        },
-        body: JSON.stringify({ password }),
-      }
-    );
-
-    const data = await response.json();
-    console.log(data);
   };
 
   return (
