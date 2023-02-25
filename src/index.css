@@ -5,9 +5,134 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(54, 54, 104);
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.app-header {
+  background-color: rgb(34, 34, 66);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-header span {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.app-body {
+  margin-top: 3rem;
+  padding: 0.5rem;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.margin-beneath {
+  margin-bottom: 1.5rem;
+}
+
+.margin-above {
+  margin-top: 1.5rem;
+}
+
+.btn-primary {
+  background-color: rgb(255, 123, 0);
+  color: white;
+  border: 0;
+  width: 100%;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input {
+  width: 70vw;
+  height: 3rem;
+  font-size: 1.5rem;
+  background-color: rgba(34, 34, 66, 0.538);
+  color: white;
+  border: 1px solid white;
+}
+
+.form-input:focus {
+  outline: none;
+  border: 1px solid rgb(255, 123, 0);
+}
+
+.form-btn {
+  width: 71vw;
+  font-size: 1.5rem;
+  background-color: rgb(255, 123, 0);
+  color: white;
+  border: 0;
+  padding: 0.5rem;
+}
+
+.view-btn {
+  width: 50%;
+  border: 0;
+  background-color: rgb(34, 34, 66);
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.dark-background {
+  background-color: rgb(34, 34, 66);
+}
+
+.spaced {
+  line-height: 1.5rem;
+}
+
+.filter-background {
+  background-color: rgba(34, 34, 66, 0.538);
+}
+
+.text-section {
+  padding: 0.5rem;
+}
+
+.oracle {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: rgb(146, 232, 240);
+  border: 2px solid rgb(215, 252, 255);
+  box-shadow: 0 0 1rem 0 rgb(146, 232, 240);
+  transition: background-color 0.25s, border 0.25s, box-shadow 0.25s;
+}
+
+.activated {
+  background-color: rgb(255, 144, 40);
+  border: 2px solid rgb(255, 175, 100);
+  box-shadow: 0 0 1rem 0 rgb(255, 144, 40);
+}
+
+.orange {
+  color: rgb(255, 123, 0);
 }

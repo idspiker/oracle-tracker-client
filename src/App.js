@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
+import Home from './pages/Home';
+import Join from './pages/Join';
+import Start from './pages/Start';
+import End from './pages/End';
+import SessionMain from './pages/SessionMain';
+import Oracles from './pages/Oracles';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/join' element={<Join />} />
+          <Route path='/start' element={<Start />} />
+          <Route path='/end' element={<End />} />
+          <Route path='/session' element={<SessionMain />} />
+          <Route path='/session/oracles' element={<Oracles />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
