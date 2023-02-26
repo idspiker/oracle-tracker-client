@@ -9,9 +9,9 @@ export default function Join() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    localStorage.setItem('join-code', joinCode);
+    localStorage.setItem('join-code', joinCode.trim());
 
-    window.location.replace('/session/oracles');
+    return (window.location.href = '/session/oracles');
   };
 
   return (

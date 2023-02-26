@@ -13,6 +13,21 @@ export default function Oracles() {
   const [loading, setLoading] = useState(true);
   const [selectedView, setSelectedView] = useState('templar');
 
+  useEffect(() => {
+    if (window.localStorage.getItem('refreshed') !== '1') {
+      window.localStorage.setItem('refreshed', '1');
+      window.location.reload();
+      return;
+    }
+  });
+
+  useEffect(() => {
+    socket.on('oracle-configuration', (data) => {
+      setSocketData(data);
+      setLoading(false);
+    });
+  }, [socket]);
+
   const activateOracle = (oracleName, encounter) => {
     socket.emit('activate-oracle', {
       oracleName,
@@ -28,13 +43,6 @@ export default function Oracles() {
   const changePlanet = (planet) => {
     socket.emit('change-planet', { planet });
   };
-
-  useEffect(() => {
-    socket.on('oracle-configuration', (data) => {
-      setSocketData(data);
-      setLoading(false);
-    });
-  }, [socket]);
 
   return (
     <>
